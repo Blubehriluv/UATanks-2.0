@@ -9,12 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public static float playerForwardSpeed;
     public static float playerBackSpeed;
     public static float playerTurnSpeed;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerTF = gameObject.GetComponent<Transform>();
-
     }
 
     // Update is called once per frame
@@ -59,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.collider.gameObject.tag != "Enemy" && collision.collider.gameObject.tag != "tree")
         {
-            Debug.Log("something got hit");
+            //Debug.Log("something got hit");
             //Destroy(gameObject);
         }
     }

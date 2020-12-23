@@ -10,10 +10,11 @@ public class TorpedoHit : MonoBehaviour
     public static float enemyShellDamage;
     public static int hitsGiven;
     public static int hitsTaken;
+    AudioSource audioData;
     // Start is called before the first frame update
     void Start()
     {
-
+        audioData = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,14 +30,10 @@ public class TorpedoHit : MonoBehaviour
             collision.collider.gameObject.GetComponent<EnemyData>().enemyHealth = collision.collider.gameObject.GetComponent<EnemyData>().enemyHealth - shellDamage;
             Debug.Log("Hit Enemy");
             hitsGiven++;
-            Destroy(gameObject);
-        }/*
-        if (collision.collider.gameObject.tag == "Player")
-        {
-            collision.collider.gameObject.GetComponent<TankData>().currentHealth = collision.collider.gameObject.GetComponent<TankData>().currentHealth - enemyShellDamage;
-            Debug.Log("Hit Enemy");
-            hitsTaken++;
-            Destroy(gameObject);
-        }*/
+            
+        }
+        audioData.Play(0);
+        Destroy(gameObject);
+
     }
 }

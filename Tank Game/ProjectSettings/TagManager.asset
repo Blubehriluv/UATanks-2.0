@@ -6,6 +6,8 @@ TagManager:
   tags:
   - torpedo
   - Enemy
+  - Powerslab
+  - Script
   layers:
   - Default
   - TransparentFX

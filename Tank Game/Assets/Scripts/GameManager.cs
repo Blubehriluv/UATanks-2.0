@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
 
     public List<Sprite> redSprites;// fullE, eightyE, sixtyE, fortyE, twentyE, zeroE;
 
-    //public SpawnPoint sp;
-    public GameObject enemy;
+    public SpawnPoint sp;
+    //public GameObject enemy;
     public Text points;
     private string pointHolder;
 
@@ -53,7 +53,10 @@ public class GameManager : MonoBehaviour
 
     
     public float bulletTimeout;
-    //public float enemyBulletTimeout;
+    public float enemyBulletTimeout;
+
+    public int totalPickups;
+    public int currentPickups;
     
 
 
@@ -63,8 +66,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //TankData.playerHealth = playerHealth;
-        enemy.GetComponent<EnemyData>().enemyHealth = enemyHealth;
-        enemy.GetComponent<EnemyData>().enemyCurrentHealth = enemyHealth;
+        //enemy.GetComponent<EnemyData>().enemyHealth = enemyHealth;
+        //enemy.GetComponent<EnemyData>().enemyCurrentHealth = enemyHealth;
 
         TorpedoHit.shellDamage = setShellDamage;
         TorpedoHit.enemyShellDamage = setEnemyShellDamage;
@@ -75,10 +78,10 @@ public class GameManager : MonoBehaviour
 
         TorpedoSpawn.thrust = torpedoThrust;
         TorpedoSpawn.fireRate = fireRate;
-        TorpedoSpawn.bulletTimeout = bulletTimeout;
+        TorpedoSpawn.torpedoTimeout = bulletTimeout;
 
-        //EnemyFire.enemyThrust = enemyTorpedoThrust;
-        //EnemyFire.enemyBulletTimeout = enemyBulletTimeout;
+        //EnemyController.enemyThrust = enemyTorpedoThrust;
+        //EnemyController.enemyBulletTimeout = enemyBulletTimeout;
 
         
 
@@ -90,8 +93,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         TotalPoints = (HitPointValue * TorpedoHit.hitsGiven) + (DestroyPointValue * tanksDestroyed);
-
-        
-        points.text = TotalPoints.ToString();
+                
+        //points.text = TotalPoints.ToString();
     }
 }

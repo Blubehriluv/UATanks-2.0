@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8627487432400422981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8627487432400422980}
+  - component: {fileID: 8627487432400423035}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8627487432400422980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8627487432400422981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8627487432400423035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8627487432400422981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d669544d577424f8a9c3be2321e068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueSprites:
+  - {fileID: 21300000, guid: 7b2ca88619cc8f1478e3d4d21c3173d1, type: 3}
+  - {fileID: 21300000, guid: 51a2c823ac354c546b489a2d06c64ebe, type: 3}
+  - {fileID: 21300000, guid: f8f97655a5579ca47bbc0a974cfb0513, type: 3}
+  - {fileID: 21300000, guid: 152d8aec0c6f49546a0cb28c487caf14, type: 3}
+  - {fileID: 21300000, guid: e2b480eccb594964bb8c6377824daca8, type: 3}
+  - {fileID: 21300000, guid: 92120bcdfc51ea14f9408bf66735057d, type: 3}
+  redSprites:
+  - {fileID: 21300000, guid: 5585834d9bbea8644a64cd74b714e7c8, type: 3}
+  - {fileID: 21300000, guid: e94928f9e575c9b4d839445e8e8a4e4c, type: 3}
+  - {fileID: 21300000, guid: 409ebc32f8957864788a37281fe889e4, type: 3}
+  - {fileID: 21300000, guid: f1eebe0aad7088449afef20c76efb4fb, type: 3}
+  - {fileID: 21300000, guid: ca6d362543b5a88449680dec15552f06, type: 3}
+  - {fileID: 21300000, guid: 890b7d6fc4caf8942a618d836ff9a455, type: 3}
+  enemy: {fileID: 0}
+  points: {fileID: 0}
+  playerHealth: 250
+  setShellDamage: 50
+  fireRate: 1
+  playerForwardSpeed: 5
+  playerTurnSpeed: 2
+  playerBackSpeed: 2
+  enemyHealth: 300
+  setEnemyShellDamage: 0
+  torpedoThrust: 500
+  enemyTorpedoThrust: 500
+  tanksDestroyed: 0
+  selfDestroyed: 0
+  HitPointValue: 100
+  DestroyPointValue: 500
+  bulletTimeout: 4
