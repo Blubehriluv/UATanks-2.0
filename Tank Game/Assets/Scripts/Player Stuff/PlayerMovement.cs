@@ -6,10 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Transform playerTF;
     public Rigidbody playerRB;
-    public static float playerForwardSpeed;
-    public static float playerBackSpeed;
-    public static float playerTurnSpeed;
-    
+ 
 
 
     // Start is called before the first frame update
@@ -20,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (Input.GetKey(KeyCode.W))
         {
             Vector3 wantedPosition =
@@ -45,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Quaternion wantedRotation = playerTF.rotation * Quaternion.Euler(Vector3.down * playerTurnSpeed);
             playerRB.MoveRotation(wantedRotation);
-        }
+        }*/
     }
 
     void OnCollisionEnter(Collision collision)

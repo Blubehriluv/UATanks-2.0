@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     }
 
     public List<Sprite> blueSprites; //full, eighty, sixty, forty, twenty, zero;
-
     public List<Sprite> redSprites;// fullE, eightyE, sixtyE, fortyE, twentyE, zeroE;
 
     public SpawnPoint sp;
@@ -34,7 +33,11 @@ public class GameManager : MonoBehaviour
     public float playerForwardSpeed;
     public float playerTurnSpeed;
     public float playerBackSpeed;
-    
+
+    public float enemyForwardSpeed;
+    public float enemyTurnSpeed;
+    public float enemyBackSpeed;
+
     public float enemyHealth;
     public float setEnemyShellDamage;
 
@@ -58,23 +61,37 @@ public class GameManager : MonoBehaviour
     public int totalPickups;
     public int currentPickups;
     
-
+    /*
+    public enum PlayerTarget { player, player2};
+    public PlayerTarget playerTarget;
+    public bool isMultiplayer;
+    public GameObject[] targets;*/
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //TankData.playerHealth = playerHealth;
-        //enemy.GetComponent<EnemyData>().enemyHealth = enemyHealth;
-        //enemy.GetComponent<EnemyData>().enemyCurrentHealth = enemyHealth;
+        //SelectTargets();
+
 
         TorpedoHit.shellDamage = setShellDamage;
         TorpedoHit.enemyShellDamage = setEnemyShellDamage;
 
-        PlayerMovement.playerForwardSpeed = playerForwardSpeed;
-        PlayerMovement.playerTurnSpeed = playerTurnSpeed;
-        PlayerMovement.playerBackSpeed = playerBackSpeed;
+        InputManager.playerForwardSpeed = playerForwardSpeed;
+        InputManager.playerTurnSpeed = playerTurnSpeed;
+        InputManager.playerBackSpeed = playerBackSpeed;
+
+        SampleAI.enemyForwardSpeed = enemyForwardSpeed;
+        SampleAI.enemyTurnSpeed = enemyTurnSpeed;
+
+        Avoidance.enemyForwardSpeed = enemyForwardSpeed;
+        Avoidance.enemyTurnSpeed = enemyTurnSpeed;
+
+        Courage.enemyForwardSpeed = enemyForwardSpeed;
+        Courage.enemyTurnSpeed = enemyTurnSpeed;
+
+        FSM.enemyHealth = enemyHealth;
 
         TorpedoSpawn.thrust = torpedoThrust;
         TorpedoSpawn.fireRate = fireRate;
@@ -89,7 +106,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         TotalPoints = (HitPointValue * TorpedoHit.hitsGiven) + (DestroyPointValue * tanksDestroyed);
