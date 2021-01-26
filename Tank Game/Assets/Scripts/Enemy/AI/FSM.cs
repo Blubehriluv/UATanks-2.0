@@ -121,7 +121,7 @@ public class FSM : MonoBehaviour
                     }
 
                     // Check for Transitions
-                    if (enemyHealth < enemyMaxHealth * percentHealthToFlee)
+                    if (data.hp < data.maxHp * percentHealthToFlee)
                     {
                         ChangeState(AIState.CheckForFlee);
                     }
@@ -144,7 +144,7 @@ public class FSM : MonoBehaviour
                         Shooter.canShoot = true;
                     }
                     // Check for Transitions
-                    if (enemyHealth < enemyMaxHealth * percentHealthToFlee)
+                    if (data.hp < data.maxHp * percentHealthToFlee)
                     {
                         ChangeState(AIState.CheckForFlee);
                     }
@@ -214,7 +214,7 @@ public class FSM : MonoBehaviour
                                 }
                                 else if (CanHear(target.gameObject))
                                 {
-                                    motor.RotateTowards(target.position, enemyTurnSpeed);
+                                    motor.RotateTowards(target.position, data.turnSpeed);
                                 }
                                 break;
                             }
@@ -229,15 +229,15 @@ public class FSM : MonoBehaviour
                                 //If we can hear them, turn towards them
                                 else if (CanHear(target.gameObject))
                                 {
-                                    motor.RotateTowards(target.position, enemyTurnSpeed);
+                                    motor.RotateTowards(target.position, data.turnSpeed);
                                 }
                                 //If not, patrol waypoints
                                 else
                                 {
-                                    if (!(motor.RotateTowards(waypoints[currentWaypoint].position, enemyTurnSpeed)))
+                                    if (!(motor.RotateTowards(waypoints[currentWaypoint].position, data.turnSpeed)))
                                     {
                                         //Move forward
-                                        motor.Move(enemyForwardSpeed);
+                                        motor.Move(data.turnSpeed);
                                     }
 
                                     // If we are close to the waypoint,
@@ -324,9 +324,9 @@ public class FSM : MonoBehaviour
     void DoChase()
     {
         //Face target
-        motor.RotateTowards(target.position, enemyTurnSpeed);
+        motor.RotateTowards(target.position, data.turnSpeed);
         //Check if we can move
-        if (CanMove(enemyForwardSpeed))
+        if (CanMove(data.forwardSpeed))
         {
             motor.Move(enemyForwardSpeed);
         }
@@ -345,12 +345,12 @@ public class FSM : MonoBehaviour
         vectorAwayFromTarget.Normalize();                                       //Normalized vector
 
         //Rotate away from target
-        motor.RotateTowards(vectorAwayFromTarget * fleeDistance + tf.position, enemyTurnSpeed);
+        motor.RotateTowards(vectorAwayFromTarget * fleeDistance + tf.position, data.turnSpeed);
 
         //Check if we can move
-        if (CanMove(enemyForwardSpeed))
+        if (CanMove(data.forwardSpeed))
         {
-            motor.Move(enemyForwardSpeed);
+            motor.Move(data.forwardSpeed);
         }
         else
         {
@@ -365,10 +365,10 @@ public class FSM : MonoBehaviour
         if (avoidanceStage == 1)
         {
             //Rotate left
-            motor.Rotate(-1 * enemyTurnSpeed);
+            motor.Rotate(-1 * data.turnSpeed);
 
             //If I can now move forward, move to stage 2
-            if (CanMove(enemyForwardSpeed))
+            if (CanMove(data.forwardSpeed))
             {
                 avoidanceStage = 2;
 
@@ -381,11 +381,11 @@ public class FSM : MonoBehaviour
         else if (avoidanceStage == 2)
         {
             //If we can move forward, do so
-            if (CanMove(enemyForwardSpeed))
+            if (CanMove(data.forwardSpeed))
             {
                 //Subtract from our timer and move
                 exitTime -= Time.deltaTime;
-                motor.Move(enemyForwardSpeed);
+                motor.Move(data.forwardSpeed);
 
                 //If we have moved long enough, return to chase mode
                 if (exitTime <= 0)
@@ -423,7 +423,7 @@ public class FSM : MonoBehaviour
     public void DoRest()
     {
         //Increase our health per second, but don't over heal
-        enemyHealth += Mathf.Clamp(restingHealRate * Time.deltaTime, 0, enemyMaxHealth);
+        enemyHealth += Mathf.Clamp(restingHealRate * Time.deltaTime, 0, data.maxHp);
     }
 
     public bool CanHear(GameObject target)

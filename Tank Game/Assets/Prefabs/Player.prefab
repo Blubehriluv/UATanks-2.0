@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 4299388389970803566}
   m_Layer: 0
   m_Name: TankFree_Blue
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 787375066}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -889,6 +889,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   torpedo: {fileID: 7090710131271465290, guid: 6f4d29cfd8b2b4744bcabc5437eeb536, type: 3}
   spawnPoint: {fileID: 4299388391258941022}
+  canShoot: 1
+  isPlayer: 0
 --- !u!82 &3161008457964717048
 AudioSource:
   m_ObjectHideFlags: 0

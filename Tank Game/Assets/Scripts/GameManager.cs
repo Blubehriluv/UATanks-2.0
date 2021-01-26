@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public List<Sprite> blueSprites; //full, eighty, sixty, forty, twenty, zero;
     public List<Sprite> redSprites;// fullE, eightyE, sixtyE, fortyE, twentyE, zeroE;
 
+    public GameObject player;
     public SpawnPoint sp;
     //public GameObject enemy;
     public Text points;
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
 
     public int totalPickups;
     public int currentPickups;
+
+
     
     /*
     public enum PlayerTarget { player, player2};
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //SelectTargets();
-
+        player = GameObject.FindGameObjectWithTag("Player");
 
         TorpedoHit.shellDamage = setShellDamage;
         TorpedoHit.enemyShellDamage = setEnemyShellDamage;
@@ -105,7 +108,9 @@ public class GameManager : MonoBehaviour
         //EnemyController.enemyThrust = enemyTorpedoThrust;
         //EnemyController.enemyBulletTimeout = enemyBulletTimeout;
 
-        
+        Powerup.playerForwardSpeed = playerForwardSpeed;
+        Powerup.playerHealth = playerHealth;
+        Powerup.fireRate = fireRate;
 
 
         

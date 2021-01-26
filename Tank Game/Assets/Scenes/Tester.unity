@@ -405,35 +405,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4299388389970803560, guid: 4d7ce21c278460c469a5dea51b4b5c5c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4299388389970803561, guid: 4d7ce21c278460c469a5dea51b4b5c5c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4299388390384439168, guid: 4d7ce21c278460c469a5dea51b4b5c5c,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4299388390384439168, guid: 4d7ce21c278460c469a5dea51b4b5c5c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 4299388390384439168, guid: 4d7ce21c278460c469a5dea51b4b5c5c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4299388391176309419, guid: 4d7ce21c278460c469a5dea51b4b5c5c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.4
+      value: -47.7
       objectReference: {fileID: 0}
     - target: {fileID: 4299388391176309419, guid: 4d7ce21c278460c469a5dea51b4b5c5c,
         type: 3}
@@ -443,7 +423,7 @@ PrefabInstance:
     - target: {fileID: 4299388391176309419, guid: 4d7ce21c278460c469a5dea51b4b5c5c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4299388391176309419, guid: 4d7ce21c278460c469a5dea51b4b5c5c,
         type: 3}
@@ -552,7 +532,7 @@ MonoBehaviour:
   showDebug: 0
   target: {fileID: 0}
   avoidanceTime: 2
-  movementType: 1
+  movementType: 0
   fleeDistance: 3
   percentHealthToFlee: 0
   fleeTime: 5
@@ -560,10 +540,33 @@ MonoBehaviour:
   - {fileID: 745448840}
   - {fileID: 142334166}
   - {fileID: 988712194}
-  closeEnough: 1
-  loopType: 0
+  closeEnough: 3
+  loopType: 1
   Shooter: {fileID: 0}
   enemyMaxHealth: 0
+--- !u!114 &371898453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371898448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d2f2a1e24ed9a41a88bc65fedb2704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardSpeed: 1
+  reverseSpeed: 1.5
+  turnSpeed: 180
+  shellDamage: 0
+  fireRate: 0
+  maxHp: 250
+  hp: 250
+  pointValue: 0
+  score: 0
+  fireRateModifier: 1
+  maxLives: 0
 --- !u!1 &497566779
 GameObject:
   m_ObjectHideFlags: 0
