@@ -23,7 +23,7 @@ public class MinePickup : MonoBehaviour
     void Start()
     {
         audioData = GetComponent<AudioSource>();
-        data = GameObject.Find("Player").GetComponent<TankData>();
+        //data = GameObject.Find("Player").GetComponent<TankData>();
     }
 
     // Update is called once per frame
@@ -34,45 +34,44 @@ public class MinePickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        { 
-            //audioData.Play(0);
-            if (pickupType == Pickups.mine)
+        data = other.gameObject.GetComponent<TankData>(); 
+        //audioData.Play(0);
+        if (pickupType == Pickups.mine)
+        {
+            waitTime = mineWaitTime;
+            currentPickups++;
+        }
+        if (pickupType == Pickups.heal)
+        {
+            waitTime = healthWaitTime;
+            if (healthCooldown != true)
             {
-                waitTime = mineWaitTime;
-                currentPickups++;
-            }
-            if (pickupType == Pickups.heal)
-            {
-                waitTime = healthWaitTime;
-                if (healthCooldown != true)
+                if (data.hp < data.maxHp)
                 {
-                    if (data.hp < data.maxHp)
-                    {
-                        Debug.Log("Health orb acquired");
-                        DrinkHealth();
-                        healthCooldown = false;
-                    }
-                    else
-                    {
-                        Debug.Log("I'm too healthy uwu");
-                        return;
-                    }
+                    Debug.Log("Health orb acquired");
+                    DrinkHealth();
+                    healthCooldown = false;
                 }
                 else
                 {
-                    Debug.Log("Stop trying to take more than one!");
-                    healthCooldown = true;
+                    Debug.Log("I'm too healthy uwu");
                     return;
                 }
-
             }
-            if (pickupType == Pickups.hpIncrease)
+            else
             {
-                waitTime = healthMaxWaitTime;
-                data.maxHp += data.maxOrb;
+                Debug.Log("Stop trying to take more than one!");
+                healthCooldown = true;
+                return;
             }
-            BeginCode();
+
         }
+        if (pickupType == Pickups.hpIncrease)
+        {
+            waitTime = healthMaxWaitTime;
+            data.maxHp += data.maxOrb;
+        }
+        BeginCode();
         
     }
 
