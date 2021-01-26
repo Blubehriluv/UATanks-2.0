@@ -11,7 +11,8 @@ public class TorpedoSpawn : MonoBehaviour
     public static float thrust;
     public static float torpedoTimeout;
     public static float fireRate;
-    private bool canShoot = true;
+    public bool canShoot = true;
+    public bool isPlayer;
     AudioSource audioData;
 
     void Start()
@@ -22,10 +23,34 @@ public class TorpedoSpawn : MonoBehaviour
 
     void Update()
     {
-        //If the fire rate timer allows, the player can shoot again
-        if (canShoot == true)
+        if (isPlayer == true)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            //If the fire rate timer allows, the player can shoot again
+            if (canShoot == true)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    audioData.Play(0);
+                    //Creates a game object specifically for the fired torpedo.
+                    GameObject BulletHold = Instantiate(torpedo, spawnPoint.position, spawnPoint.rotation) as GameObject;
+                    Rigidbody temporary_RB = BulletHold.GetComponent<Rigidbody>();
+                    //Propels the torpedo forward with speed
+                    temporary_RB.AddForce(transform.forward * (thrust * 2));
+                    //Destroys torpedo after a certain time.
+                    Destroy(BulletHold, torpedoTimeout);
+                    canShoot = false;
+                    BeginCode();
+                    Debug.Log("shooting!");
+                }
+            }
+        }
+        else
+        {
+            if (canShoot == true)
+            {
+                Debug.Log("Do nothing");
+            }
+            else
             {
                 audioData.Play(0);
                 //Creates a game object specifically for the fired torpedo.

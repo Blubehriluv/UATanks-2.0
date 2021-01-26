@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public float playerHealth;
     public float setShellDamage;
     public float fireRate;
+    public float enemyFireRate;
     public float playerForwardSpeed;
     public float playerTurnSpeed;
     public float playerBackSpeed;
@@ -92,10 +93,14 @@ public class GameManager : MonoBehaviour
         Courage.enemyTurnSpeed = enemyTurnSpeed;
 
         FSM.enemyHealth = enemyHealth;
+        FSM.enemyForwardSpeed = enemyForwardSpeed;
+        FSM.enemyTurnSpeed = enemyTurnSpeed;
 
         TorpedoSpawn.thrust = torpedoThrust;
         TorpedoSpawn.fireRate = fireRate;
         TorpedoSpawn.torpedoTimeout = bulletTimeout;
+
+        FSM.enemyFireRate = enemyFireRate;
 
         //EnemyController.enemyThrust = enemyTorpedoThrust;
         //EnemyController.enemyBulletTimeout = enemyBulletTimeout;
