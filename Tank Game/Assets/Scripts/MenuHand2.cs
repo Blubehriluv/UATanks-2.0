@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuHandler : MonoBehaviour
+public class MenuHand2 : MonoBehaviour
 {
     public Canvas canvas;
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class MenuHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            ChangeScene("Thanks");
+            ChangeScene("MainMenu");
         }
     }
 
