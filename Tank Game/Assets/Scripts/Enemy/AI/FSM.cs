@@ -65,7 +65,9 @@ public class FSM : MonoBehaviour
         lastSeen = Time.time - 1;
 
         //Set Waypoints
-        waypoints = tf.parent.GetComponentsInChildren<Transform>();
+        waypoints = tf.GetComponentsInChildren<Transform>();
+
+        Shooter = GetComponentInChildren<TorpedoSpawn>();
     }
 
     // Update is called once per frame
@@ -126,6 +128,9 @@ public class FSM : MonoBehaviour
                     }
                     break;
                 }
+            //First checking 
+            //The AI will now Chase and Fire at the player once the AI can sense the player.
+            //
             case AIState.ChaseAndFire:
                 {
                     // Perform Behaviors
@@ -149,6 +154,7 @@ public class FSM : MonoBehaviour
                     }
                     break;
                 }
+            //
             case AIState.Flee:
                 {
                     // Perform Behaviors

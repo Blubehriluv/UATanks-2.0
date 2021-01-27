@@ -468,6 +468,11 @@ PrefabInstance:
       propertyPath: movementType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8088380503631077315, guid: 6d52f99e5db782a49beffff9ba4d02f9,
+        type: 3}
+      propertyPath: m_Name
+      value: TorpedoSpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d52f99e5db782a49beffff9ba4d02f9, type: 3}
 --- !u!1 &628445116 stripped
@@ -501,6 +506,28 @@ MonoBehaviour:
   maxLives: 0
   healthOrb: 25
   maxOrb: 10
+--- !u!1 &628445118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8088380503631077315, guid: 6d52f99e5db782a49beffff9ba4d02f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 628445115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &628445119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628445118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca8782441209a2469a55ddb69d5269b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torpedo: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  canShoot: 1
+  isPlayer: 0
 --- !u!1 &1154820432
 GameObject:
   m_ObjectHideFlags: 0
