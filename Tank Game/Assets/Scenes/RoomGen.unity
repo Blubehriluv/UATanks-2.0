@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430.6, y: 242.3}
+  m_AnchoredPosition: {x: -412, y: 242.3}
   m_SizeDelta: {x: 176.9, y: 53.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257368230
@@ -274,6 +274,11 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8627487432400423035, guid: 8b3ad17e0de886644a8e6bde35f36be4,
+        type: 3}
+      propertyPath: points
+      value: 
+      objectReference: {fileID: 1493227545}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b3ad17e0de886644a8e6bde35f36be4, type: 3}
 --- !u!1001 &979704202
@@ -432,7 +437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303.59, y: 242.29994}
+  m_AnchoredPosition: {x: -275.04, y: 242.29994}
   m_SizeDelta: {x: 97.02, y: 53.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1493227545
