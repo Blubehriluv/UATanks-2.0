@@ -66,6 +66,8 @@ MonoBehaviour:
   enemyFireRate: 0
   torpedoThrust: 500
   enemyTorpedoThrust: 500
+  hitsTaken: 0
+  hitsGiven: 0
   tanksDestroyed: 0
   selfDestroyed: 0
   HitPointValue: 100
@@ -74,3 +76,4 @@ MonoBehaviour:
   enemyBulletTimeout: 0
   totalPickups: 0
   currentPickups: 0
+  musicVolume: 0

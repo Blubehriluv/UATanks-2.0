@@ -8,7 +8,7 @@ public class FSM : MonoBehaviour
     private TankMotor motor;                                                 
     private Transform tf;                                                    
     public enum AIState                                                      
-    { Chase, ChaseAndFire, CheckForFlee, Flee, Rest, Wander };
+    { Chase, ChaseAndFire, CheckForFlee, Flee, Rest, Wander, Fire };
 
     [SerializeField]
     private AIState aiState = AIState.Chase;
@@ -34,6 +34,7 @@ public class FSM : MonoBehaviour
     public float fleeDistance = 1.0f;
     public float percentHealthToFlee;
     public float fleeTime;
+    public float stopAndShootDistance = 2;  //How far the player can be for us to stop and shoot
 
     //Waypoints
     [Header("Waypoint Settings")]
@@ -44,11 +45,13 @@ public class FSM : MonoBehaviour
     public LoopType loopType;
     private bool isPatrolForward = true;
 
-    public TorpedoSpawn Shooter;
+    private TorpedoSpawn Shooter;
 
     private float distanceFromTarget;
     private Transform target1;
     private Transform target2;
+    //Parent object for holding waypoints
+    public Transform[] waypointsGroup;
 
     // Use this for initialization
     void Start()
@@ -64,8 +67,7 @@ public class FSM : MonoBehaviour
         //Set Time
         lastSeen = Time.time - 1;
 
-        //Set Waypoints
-        waypoints = tf.GetComponentsInChildren<Transform>();
+        
 
         Shooter = GetComponentInChildren<TorpedoSpawn>();
     }
@@ -141,7 +143,7 @@ public class FSM : MonoBehaviour
                     else
                     {
                         DoChase();
-                        Shooter.canShoot = true;
+                        Shooter.Shoot();
                     }
                     // Check for Transitions
                     if (data.hp < data.maxHp * percentHealthToFlee)
@@ -152,9 +154,29 @@ public class FSM : MonoBehaviour
                     {
                         ChangeState(AIState.Chase);
                     }
+                    else if (distanceFromTarget > stopAndShootDistance)
+                    {
+                        ChangeState(AIState.Fire);
+                    }
                     break;
                 }
             //
+            case AIState.Fire:
+                //If health is too low, we'll check for flee
+                if (data.hp < data.maxHp * percentHealthToFlee)
+                {
+                    ChangeState(AIState.CheckForFlee);
+                }
+
+                //If the player is too far, we'll chase and fire
+                else if (distanceFromTarget > stopAndShootDistance)
+                {
+
+                }
+
+                Shooter.Shoot();
+                break;
+
             case AIState.Flee:
                 {
                     // Perform Behaviors

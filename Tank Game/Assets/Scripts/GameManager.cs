@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     public float torpedoThrust;
     public float enemyTorpedoThrust;
 
-    private int hitsTaken = 0;
-    private int hitsGiven = 0;
+    public int hitsTaken = 0;
+    public int hitsGiven = 0;
     public int tanksDestroyed = 0;
     public int selfDestroyed = 0;
 
@@ -89,8 +89,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        TotalPoints = (HitPointValue * TorpedoHit.hitsGiven) + (DestroyPointValue * tanksDestroyed);
+        hitsTaken = TorpedoHit.hitsTaken;
+        TotalPoints = (HitPointValue * hitsTaken);
         musicVolume = Volume.AudioVolume;
-        //points.text = TotalPoints.ToString();
+        points.text = TotalPoints.ToString();
     }
 }

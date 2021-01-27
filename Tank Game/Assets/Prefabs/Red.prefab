@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7700139085214808483}
   - component: {fileID: 4457118643588638475}
   - component: {fileID: 2996874354454885544}
+  - component: {fileID: 5358639517645651944}
   m_Layer: 0
   m_Name: Red
   m_TagString: Enemy
@@ -73,10 +74,11 @@ MonoBehaviour:
   fleeDistance: 1
   percentHealthToFlee: 0
   fleeTime: 0
+  stopAndShootDistance: 2
   waypoints: []
   closeEnough: 1
   loopType: 0
-  Shooter: {fileID: 0}
+  waypointsGroup: []
 --- !u!143 &2996874354454885544
 CharacterController:
   m_ObjectHideFlags: 0
@@ -95,6 +97,31 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: -1.8}
+--- !u!114 &5358639517645651944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500707076115743681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d2f2a1e24ed9a41a88bc65fedb2704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardSpeed: 5
+  reverseSpeed: 1.5
+  turnSpeed: 180
+  shellDamage: 50
+  fireRate: 0
+  maxHp: 250
+  hp: 250
+  pointValue: 100
+  score: 0
+  fireRateModifier: 1
+  maxLives: 0
+  healthOrb: 0
+  maxOrb: 10
 --- !u!1 &5500707076397563396
 GameObject:
   m_ObjectHideFlags: 0

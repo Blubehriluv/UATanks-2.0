@@ -874,11 +874,11 @@ MonoBehaviour:
   forwardSpeed: 8.98
   reverseSpeed: 1.5
   turnSpeed: 180
-  shellDamage: 0
+  shellDamage: 50
   fireRate: 0
   maxHp: 250
-  hp: 200
-  pointValue: 0
+  hp: 250
+  pointValue: 100
   score: 0
   fireRateModifier: 1
   maxLives: 0
@@ -931,7 +931,7 @@ MonoBehaviour:
   torpedo: {fileID: 7090710131271465290, guid: 6f4d29cfd8b2b4744bcabc5437eeb536, type: 3}
   spawnPoint: {fileID: 4299388391258941022}
   canShoot: 1
-  isPlayer: 0
+  isPlayer: 1
 --- !u!82 &3161008457964717048
 AudioSource:
   m_ObjectHideFlags: 0

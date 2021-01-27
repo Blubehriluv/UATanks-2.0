@@ -25,55 +25,52 @@ public class TorpedoSpawn : MonoBehaviour
     {
         if (isPlayer == true)
         {
-            //If the fire rate timer allows, the player can shoot again
-            if (canShoot == true)
+            //If player presses space, try to shoot
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    audioData.Play(0);
-                    //Creates a game object specifically for the fired torpedo.
-                    GameObject BulletHold = Instantiate(torpedo, spawnPoint.position, spawnPoint.rotation) as GameObject;
-                    Rigidbody temporary_RB = BulletHold.GetComponent<Rigidbody>();
-                    //Propels the torpedo forward with speed
-                    temporary_RB.AddForce(transform.forward * (thrust * 2));
-                    //Destroys torpedo after a certain time.
-                    Destroy(BulletHold, torpedoTimeout);
-                    canShoot = false;
-                    BeginCode();
-                    Debug.Log("shooting!");
-                }
-            }
-        }
-        else
-        {
-            if (canShoot == true)
-            {
-                Debug.Log("Do nothing");
-            }
-            else
-            {
-                audioData.Play(0);
-                //Creates a game object specifically for the fired torpedo.
-                GameObject BulletHold = Instantiate(torpedo, spawnPoint.position, spawnPoint.rotation) as GameObject;
-                Rigidbody temporary_RB = BulletHold.GetComponent<Rigidbody>();
-                //Propels the torpedo forward with speed
-                temporary_RB.AddForce(transform.forward * (thrust * 2));
-                //Destroys torpedo after a certain time.
-                Destroy(BulletHold, torpedoTimeout);
-                canShoot = false;
-                BeginCode();
-                Debug.Log("shooting!");
+                Shoot();
             }
         }
     }
 
-    void BeginCode()
+    public void Shoot()
     {
-        StartCoroutine(nameof(WaitAMinute));
+        //If we can shoot, then shoot
+        if (canShoot == true)
+        {
+            //If we have audio data, play audio
+            if (audioData)
+            {
+                audioData.Play(0);
+            }
+
+            //Creates a game object specifically for the fired torpedo.
+            GameObject BulletHold = Instantiate(torpedo, spawnPoint.position, spawnPoint.rotation) as GameObject;
+
+            Rigidbody temporary_RB = BulletHold.GetComponent<Rigidbody>();
+            //Propels the torpedo forward with speed
+            temporary_RB.AddForce(transform.forward * (thrust * 2));
+
+            //Set canShoot to false
+            canShoot = false;
+
+            //Destroys torpedo after a certain time.
+            Destroy(BulletHold, torpedoTimeout);
+
+            //Manage shoot cool down
+            ShootCoolDown();
+        }
+
+        //otherwise, we can't shoot. No else-block required.
+    }
+
+    void ShootCoolDown()
+    {
+        StartCoroutine(nameof(WaitForCooldown));
     }
 
     //Waiter for fire rate.
-    IEnumerator WaitAMinute()
+    IEnumerator WaitForCooldown()
     {
         Debug.Log("Waiting");
         yield return new WaitForSeconds(fireRate);
