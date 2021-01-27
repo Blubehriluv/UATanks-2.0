@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3274326787605950715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.745, z: -2.202}
+  m_LocalPosition: {x: 0, y: 0.2, z: -3.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4299388389970803561}
@@ -53,7 +53,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3274326787605950715}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 93e9cfd9ff55a9642b8ae2a8618d7282, type: 3}
@@ -680,9 +680,11 @@ GameObject:
   - component: {fileID: 787375064}
   - component: {fileID: 787375065}
   - component: {fileID: 787375066}
+  - component: {fileID: 1575312183}
+  - component: {fileID: 1575312184}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -829,6 +831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   motor: {fileID: 787375066}
+  data: {fileID: 0}
   input: 0
 --- !u!114 &787375066
 MonoBehaviour:
@@ -843,6 +846,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tf: {fileID: 0}
+--- !u!114 &1575312183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299388390384439168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c87a25b8c133f442b767ea7e0daacd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powCon: {fileID: 0}
+--- !u!114 &1575312184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299388390384439168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d2f2a1e24ed9a41a88bc65fedb2704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardSpeed: 8.98
+  reverseSpeed: 1.5
+  turnSpeed: 180
+  shellDamage: 0
+  fireRate: 0
+  maxHp: 250
+  hp: 200
+  pointValue: 0
+  score: 0
+  fireRateModifier: 1
+  maxLives: 0
+  healthOrb: 25
+  maxOrb: 10
 --- !u!1 &4299388391258941017
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,22 +28,12 @@ public class GameManager : MonoBehaviour
     public Text points;
     private string pointHolder;
 
-    public float playerHealth;
     public float setShellDamage;
-    public float fireRate;
-    public float enemyFireRate;
-    public float playerForwardSpeed;
-    public float playerTurnSpeed;
-    public float playerBackSpeed;
 
-    public float enemyForwardSpeed;
-    public float enemyTurnSpeed;
-    public float enemyBackSpeed;
-
-    public float enemyHealth;
     public float setEnemyShellDamage;
 
-
+    public float fireRate;
+    public float enemyFireRate;
     public float torpedoThrust;
     public float enemyTorpedoThrust;
 
@@ -62,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     public int totalPickups;
     public int currentPickups;
+
+    public float musicVolume;
 
 
     
@@ -82,36 +74,15 @@ public class GameManager : MonoBehaviour
         TorpedoHit.shellDamage = setShellDamage;
         TorpedoHit.enemyShellDamage = setEnemyShellDamage;
 
-        InputManager.playerForwardSpeed = playerForwardSpeed;
-        InputManager.playerTurnSpeed = playerTurnSpeed;
-        InputManager.playerBackSpeed = playerBackSpeed;
-
-        SampleAI.enemyForwardSpeed = enemyForwardSpeed;
-        SampleAI.enemyTurnSpeed = enemyTurnSpeed;
-
-        Avoidance.enemyForwardSpeed = enemyForwardSpeed;
-        Avoidance.enemyTurnSpeed = enemyTurnSpeed;
-
-        Courage.enemyForwardSpeed = enemyForwardSpeed;
-        Courage.enemyTurnSpeed = enemyTurnSpeed;
-
-        FSM.enemyHealth = enemyHealth;
-        FSM.enemyForwardSpeed = enemyForwardSpeed;
-        FSM.enemyTurnSpeed = enemyTurnSpeed;
-
         TorpedoSpawn.thrust = torpedoThrust;
         TorpedoSpawn.fireRate = fireRate;
         TorpedoSpawn.torpedoTimeout = bulletTimeout;
 
-        FSM.enemyFireRate = enemyFireRate;
-
         //EnemyController.enemyThrust = enemyTorpedoThrust;
         //EnemyController.enemyBulletTimeout = enemyBulletTimeout;
 
-        Powerup.playerForwardSpeed = playerForwardSpeed;
-        Powerup.playerHealth = playerHealth;
-        Powerup.fireRate = fireRate;
 
+        musicVolume = Volume.AudioVolume;
 
         
     }
@@ -119,7 +90,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         TotalPoints = (HitPointValue * TorpedoHit.hitsGiven) + (DestroyPointValue * tanksDestroyed);
-                
+        musicVolume = Volume.AudioVolume;
         //points.text = TotalPoints.ToString();
     }
 }

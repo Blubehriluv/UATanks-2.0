@@ -141,7 +141,7 @@ MonoBehaviour:
   mineWaitTime: 10
   healthWaitTime: 25
   healthMaxWaitTime: 60
-  data: {fileID: 0}
+  data: {fileID: 9111684137741997334, guid: c12328ae1b3551a48beea85623f5f317, type: 3}
   pickupType: 2
 --- !u!1001 &5911398327166157819
 PrefabInstance:

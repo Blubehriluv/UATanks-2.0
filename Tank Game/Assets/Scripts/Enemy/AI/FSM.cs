@@ -44,12 +44,7 @@ public class FSM : MonoBehaviour
     public LoopType loopType;
     private bool isPatrolForward = true;
 
-    public static float enemyHealth;
-    public static float enemyFireRate;
-    public static float enemyTurnSpeed;
-    public static float enemyForwardSpeed;
     public TorpedoSpawn Shooter;
-    public float enemyMaxHealth;
 
     private float distanceFromTarget;
     private Transform target1;
@@ -94,7 +89,7 @@ public class FSM : MonoBehaviour
             target = target2;
         }*/
 
-        if (target != null) { distanceFromTarget = (target.position - tf.position).magnitude; }
+        //if (target != null) { distanceFromTarget = (target.position - tf.position).magnitude; }
 
 
         //Switch case statements to handle the states.
@@ -196,7 +191,7 @@ public class FSM : MonoBehaviour
                     {
                         ChangeState(AIState.Flee);
                     }
-                    else if (enemyHealth >= enemyMaxHealth)
+                    else if (data.hp >= data.maxHp)
                     {
                         ChangeState(AIState.Chase);
                     }
@@ -328,7 +323,7 @@ public class FSM : MonoBehaviour
         //Check if we can move
         if (CanMove(data.forwardSpeed))
         {
-            motor.Move(enemyForwardSpeed);
+            motor.Move(data.forwardSpeed);
         }
         else
         {
@@ -423,7 +418,7 @@ public class FSM : MonoBehaviour
     public void DoRest()
     {
         //Increase our health per second, but don't over heal
-        enemyHealth += Mathf.Clamp(restingHealRate * Time.deltaTime, 0, data.maxHp);
+        data.hp += Mathf.Clamp(restingHealRate * Time.deltaTime, 0, data.maxHp);
     }
 
     public bool CanHear(GameObject target)

@@ -49,7 +49,7 @@ MonoBehaviour:
   mineWaitTime: 10
   healthWaitTime: 25
   healthMaxWaitTime: 60
-  data: {fileID: 0}
+  data: {fileID: 9111684137741997334, guid: c12328ae1b3551a48beea85623f5f317, type: 3}
   pickupType: 0
 --- !u!135 &6936610977760496509
 SphereCollider:

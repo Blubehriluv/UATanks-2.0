@@ -5,15 +5,14 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public TankMotor motor;
-    public static float playerForwardSpeed;
-    public static float playerBackSpeed;
-    public static float playerTurnSpeed;
+    public TankData data;
     public enum InputScheme { WASD, arrowKeys };
     public InputScheme input = InputScheme.WASD;
     // Start is called before the first frame update
     void Start()
     {
-        
+        data = gameObject.GetComponent<TankData>();
+        motor = gameObject.GetComponent<TankMotor>();
     }
 
     // Update is called once per frame
@@ -24,40 +23,40 @@ public class InputManager : MonoBehaviour
             case InputScheme.arrowKeys:
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
-                    motor.Move(playerForwardSpeed);
+                    motor.Move(data.forwardSpeed);
                 }
                 if (Input.GetKey(KeyCode.DownArrow))
                 {
-                    motor.Move(-playerBackSpeed);
+                    motor.Move(-data.forwardSpeed);
                 }
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    motor.Rotate(playerTurnSpeed);
+                    motor.Rotate(data.turnSpeed);
                 }
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    motor.Rotate(-playerTurnSpeed);
+                    motor.Rotate(-data.turnSpeed);
                 }
                 break;
 
             case InputScheme.WASD:
                 if (Input.GetKey(KeyCode.W))
                 {
-                    motor.Move(playerForwardSpeed);
+                    motor.Move(data.forwardSpeed);
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
-                    motor.Move(-playerBackSpeed);
+                    motor.Move(-data.forwardSpeed);
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    motor.Rotate(playerTurnSpeed);
+                    motor.Rotate(data.turnSpeed);
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
-                    motor.Rotate(-playerTurnSpeed);
+                    motor.Rotate(-data.turnSpeed);
                 }
-                break;
+                break; 
         }
     }
 }

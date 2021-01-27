@@ -9,7 +9,7 @@ using UnityEngine;
 public class TankData : MonoBehaviour
 {
     //Variables
-    public float forwardSpeed = 3;
+    public float forwardSpeed = 5f;
     public float reverseSpeed = 1.5f;
     public float turnSpeed = 180;
     public float shellDamage;
@@ -21,7 +21,7 @@ public class TankData : MonoBehaviour
     public float fireRateModifier = 1;
     public int maxLives;
     public int healthOrb;
-    public int maxOrb;
+    public float maxOrb = 10;
 
     void Start()
     {

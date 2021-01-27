@@ -1197,6 +1197,7 @@ Transform:
   - {fileID: 868397855}
   - {fileID: 377660502}
   - {fileID: 946835619}
+  - {fileID: 6676529074196379394}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1588,6 +1589,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 413218, guid: 826b6a0b570e8460990010fa615b5a2a,
     type: 3}
   m_PrefabInstance: {fileID: 946462337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1057865033244715874
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4936139195749724920}
+    m_Modifications:
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911398326197116007, guid: a847404816babbf4e839fe148703a649,
+        type: 3}
+      propertyPath: m_Name
+      value: MaxHealth Inc
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a847404816babbf4e839fe148703a649, type: 3}
+--- !u!4 &6676529074196379394 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5911398326197116000, guid: a847404816babbf4e839fe148703a649,
+    type: 3}
+  m_PrefabInstance: {fileID: 1057865033244715874}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7043440397114369307
 PrefabInstance:

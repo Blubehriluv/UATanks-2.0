@@ -8,6 +8,10 @@ TagManager:
   - Enemy
   - Powerslab
   - Script
+  - SpawnPoint
+  - Door
+  - Waypoint
+  - Panel
   layers:
   - Default
   - TransparentFX

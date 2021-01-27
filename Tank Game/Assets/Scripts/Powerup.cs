@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class Powerup
 {
     public float speedModifier;
@@ -18,6 +17,7 @@ public class Powerup
     public static float fireRate;
 
     public List<Powerup> powerups;
+    public TankData data;
 
     // Start is called before the first frame update
     void Start()
@@ -58,18 +58,18 @@ public class Powerup
 
     public void OnActivate()
     {
-        GameManager.Instance.playerForwardSpeed += speedModifier;
-        playerHealth += healthModifier;
-        maxPlayerHealth += maxHealthModifier;
-        fireRate += fireRateModifier;
+        data.forwardSpeed += speedModifier;
+        data.hp += healthModifier;
+        data.maxHp += maxHealthModifier;
+        data.fireRate += fireRateModifier;
     }
 
     public void OnDeactivate()
     {
-        playerForwardSpeed -= speedModifier;
+        data.forwardSpeed -= speedModifier;
         playerHealth -= healthModifier;
         maxPlayerHealth -= maxHealthModifier;
-       fireRate -= fireRateModifier;
+       data.fireRate -= fireRateModifier;
     }
 
     public void Add(Powerup powerup)

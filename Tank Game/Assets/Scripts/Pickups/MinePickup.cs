@@ -22,8 +22,8 @@ public class MinePickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioData = GetComponent<AudioSource>();
-        //data = GameObject.Find("Player").GetComponent<TankData>();
+        //audioData = GetComponent<AudioSource>();
+        data = GameObject.Find("Player").GetComponent<TankData>();
     }
 
     // Update is called once per frame
@@ -38,6 +38,7 @@ public class MinePickup : MonoBehaviour
         //audioData.Play(0);
         if (pickupType == Pickups.mine)
         {
+            Debug.Log("Mine was touched");
             waitTime = mineWaitTime;
             currentPickups++;
         }
@@ -82,6 +83,7 @@ public class MinePickup : MonoBehaviour
 
     void Pickup()
     {
+        Debug.Log("PICKUP");
         mine.SetActive(false);
     }
 

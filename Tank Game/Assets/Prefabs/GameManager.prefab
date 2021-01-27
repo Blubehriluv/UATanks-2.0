@@ -57,16 +57,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f1eebe0aad7088449afef20c76efb4fb, type: 3}
   - {fileID: 21300000, guid: ca6d362543b5a88449680dec15552f06, type: 3}
   - {fileID: 21300000, guid: 890b7d6fc4caf8942a618d836ff9a455, type: 3}
-  enemy: {fileID: 0}
+  player: {fileID: 0}
+  sp: {fileID: 0}
   points: {fileID: 0}
-  playerHealth: 250
   setShellDamage: 50
-  fireRate: 1
-  playerForwardSpeed: 5
-  playerTurnSpeed: 2
-  playerBackSpeed: 2
-  enemyHealth: 300
   setEnemyShellDamage: 0
+  fireRate: 1
+  enemyFireRate: 0
   torpedoThrust: 500
   enemyTorpedoThrust: 500
   tanksDestroyed: 0
@@ -74,3 +71,6 @@ MonoBehaviour:
   HitPointValue: 100
   DestroyPointValue: 500
   bulletTimeout: 4
+  enemyBulletTimeout: 0
+  totalPickups: 0
+  currentPickups: 0
